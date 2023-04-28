@@ -29,4 +29,4 @@ with col1.form("my_form"):
        elif formatter == 'black':
            code_out = black.format_str(code_in, mode=black.FileMode())
        
-       col2.code(code_out)
+       col2.code(code_out, language='python')
