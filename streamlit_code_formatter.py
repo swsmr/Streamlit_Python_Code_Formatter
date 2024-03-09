@@ -14,7 +14,10 @@ with st.sidebar:
         style_config = st.selectbox("Select yapf style", ['pep8', 'google', 'yapf', 'facebook'], index=1)
 
 st.header('Input code')
-code_in = st.text_area("Paste the Python code to be formatted here:", height=150, label_visibility="collapsed")
+code_in = st.text_area("Paste the Python code to be formatted here:", 
+                       height=None, # 150
+                       label_visibility="collapsed", # "visible"
+                      )
 if code_in:
     if formatter == 'yapf':
         code_out, _ = FormatCode(code_in, style_config=style_config)
