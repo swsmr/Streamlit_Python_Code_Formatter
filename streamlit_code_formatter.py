@@ -27,4 +27,4 @@ with col1:
 
 with col2:
     st.header('Formatted code')
-    st.code(code_out, language='python')
+    st.code(code_out, language='python', line_numbers=True)
