@@ -12,7 +12,7 @@ col1, col2 = st.columns(2)
 with col1:
 
     st.header('Input code and formatter')
-    code_in = st.text_area("Paste the Python code to be formatted here:", height=250)
+    code_in = st.text_area("Paste the Python code to be formatted here:", height=250, label_visibility="collapsed")
     if code_in:
         formatter = st.radio("Select formatter", ['yapf', 'autopep8', 'black'])
         if formatter == 'yapf':
