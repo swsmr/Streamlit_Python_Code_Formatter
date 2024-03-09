@@ -7,11 +7,10 @@ import streamlit as st
 st.set_page_config(page_title="Python Code Formatter", layout="wide")
 st.title('Python Code Formatter')
 
-st.header('Input code')
-code_in = st.text_area("Input code")
+st.header('Input code and formatter')
+code_in = st.text_area("Paste the Python code to be formatted here:")
 if code_in:
-    st.header('Formatter')
-    formatter = st.radio("Formatter", ['yapf', 'autopep8', 'black'])
+    formatter = st.radio("Select formatter", ['yapf', 'autopep8', 'black'])
     if formatter == 'yapf':
         style_config = st.selectbox("Select yapf style", ['pep8', 'google', 'yapf', 'facebook'], index=1)
         code_out, _ = FormatCode(code_in, style_config=style_config)
