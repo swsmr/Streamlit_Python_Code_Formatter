@@ -27,4 +27,4 @@ if code_in:
         code_out = black.format_str(code_in, mode=black.FileMode())
 
     st.header('Formatted code')
-    st.code(code_out, language='python', line_numbers=True)
+    st.code(code_out, language='python', line_numbers=st.sidebar.toggle("Display line numbers?", value=True)
