@@ -32,7 +32,7 @@ if code_in:
         # code_out = subprocess.run(["black", "-c", code_in], capture_output=True, text=True).stdout
         with tempfile.NamedTemporaryFile(mode='w', delete=False) as fp:
             fp.write(code_in)
-            fp.file.close()
+            fp.close()
             # the file is closed, but not removed
 
             # Run black
@@ -41,7 +41,6 @@ if code_in:
             # open the file again by using its name
             with open(fp.name, mode='r') as f:                
                 code_out = f.read()
-                print(code_out)
 
     st.header('Formatted code')
     st.code(code_out, language='python', line_numbers=st.sidebar.toggle("Display line numbers?", value=False))
