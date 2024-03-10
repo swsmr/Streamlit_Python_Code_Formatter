@@ -36,7 +36,7 @@ if code_in:
         #                                       )
         code_out = subprocess.run(["black", "-c", code_in], 
                                   capture_output=True,
-                                  # text=True,
+                                  text=True,
                                   )
 
     st.header('Formatted code')
