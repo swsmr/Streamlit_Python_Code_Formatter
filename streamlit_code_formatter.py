@@ -37,7 +37,7 @@ if code_in:
         code_out = subprocess.run(["black", "-c", code_in], 
                                   capture_output=True,
                                   text=True,
-                                  )
+                                  ).stdout
 
     st.header('Formatted code')
     st.code(code_out, language='python', line_numbers=st.sidebar.toggle("Display line numbers?", value=False))
