@@ -30,8 +30,8 @@ if code_in:
         # code_out = black.format_str(code_in, mode=black.FileMode()) # mode=black.Mode()
         # code_out = black.format_file_contents(code_in, fast=False, mode=black.Mode()) # target_versions={black.TargetVersion.PY311}, # , line_length=120 # mode=black.FileMode(),
         # code_out = subprocess.run(["black", "-c", code_in], capture_output=True, text=True).stdout
-        with tempfile.NamedTemporaryFile(delete=False) as fp:
-            fp.write(code_in.encode())
+        with tempfile.NamedTemporaryFile(mode='w', delete=False) as fp:
+            fp.write(code_in)
             fp.close()
             # the file is closed, but not removed
 
@@ -39,8 +39,9 @@ if code_in:
             subprocess.run(["black", fp.name])
                            
             # open the file again by using its name
-            with open(fp.name, mode='rb') as f:                
-                code_out = f.read().decode()
+            with open(fp.name, mode='r') as f:                
+                code_out = f.read()
+                print(code_out)
 
     st.header('Formatted code')
     st.code(code_out, language='python', line_numbers=st.sidebar.toggle("Display line numbers?", value=False))
