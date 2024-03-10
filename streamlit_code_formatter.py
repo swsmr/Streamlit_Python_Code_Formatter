@@ -25,7 +25,7 @@ if code_in:
         code_out = autopep8.fix_code(code_in)
     elif formatter == 'black':
         # code_out = black.format_str(code_in, mode=black.FileMode())
-        code_out = black.format_file_contents(code_in, fast=False, mode=black.FileMode())
+        code_out = black.format_file_contents(code_in) #, fast=False, mode=black.FileMode())
 
     st.header('Formatted code')
     st.code(code_out, language='python', line_numbers=st.sidebar.toggle("Display line numbers?", value=False))
