@@ -26,7 +26,7 @@ if code_in:
     elif formatter == 'black':
         # code_out = black.format_str(code_in, mode=black.FileMode())
         try:
-            code_out = black.format_file_contents(code_in) #, fast=False, mode=FileMode())
+            code_out = black.format_file_contents(code_in, fast=False, mode=FileMode())
         except NothingChanged:
             code_out = code_in
 
