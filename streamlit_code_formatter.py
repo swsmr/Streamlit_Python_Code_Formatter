@@ -34,7 +34,7 @@ if code_in:
         #                                       mode=black.Mode(), # target_versions={black.TargetVersion.PY311}, # , line_length=120
         #                                       # mode=black.FileMode(),
         #                                       )
-        code_out = subprocess.run(["black", "-c", code_in])
+        code_out = subprocess.run(["black", "-c", code_in], text=True)
 
     st.header('Formatted code')
     st.code(code_out, language='python', line_numbers=st.sidebar.toggle("Display line numbers?", value=False))
