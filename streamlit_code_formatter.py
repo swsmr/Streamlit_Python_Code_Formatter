@@ -32,7 +32,7 @@ if code_in:
         # code_out = subprocess.run(["black", "-c", code_in], capture_output=True, text=True).stdout
         with tempfile.NamedTemporaryFile(mode='w', delete=False) as fp:
             fp.write(code_in)
-            fp.close()
+            fp.file.close()
             # the file is closed, but not removed
 
             # Run black
