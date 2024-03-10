@@ -27,7 +27,7 @@ if code_in:
         # code_out = black.format_str(code_in, mode=black.FileMode())
         try:
             code_out = black.format_file_contents(code_in, fast=False, mode=FileMode())
-        except NothingChanged:
+        except: # NothingChanged:
             code_out = code_in
 
     st.header('Formatted code')
