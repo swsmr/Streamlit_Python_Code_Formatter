@@ -1,3 +1,5 @@
+import subprocess
+
 import autopep8
 from yapf.yapflib.yapf_api import FormatCode
 import black
@@ -24,14 +26,15 @@ if code_in:
     elif formatter == 'autopep8':
         code_out = autopep8.fix_code(code_in)
     elif formatter == 'black':
-        code_out = black.format_str(code_in, 
-                                    mode=black.Mode(),
-                                    # mode=black.FileMode(),
-                                    ) 
+        # code_out = black.format_str(code_in, 
+        #                             mode=black.Mode(),
+        #                             # mode=black.FileMode(),
+        #                             ) 
         # code_out = black.format_file_contents(code_in, fast=False,
         #                                       mode=black.Mode(), # target_versions={black.TargetVersion.PY311}, # , line_length=120
         #                                       # mode=black.FileMode(),
         #                                       )
+        code_out = subprocess.run(["black", "-c", code_in])
 
     st.header('Formatted code')
     st.code(code_out, language='python', line_numbers=st.sidebar.toggle("Display line numbers?", value=False))
