@@ -30,7 +30,7 @@ if code_in:
         # code_out = black.format_str(code_in, mode=black.FileMode()) # mode=black.Mode()
         # code_out = black.format_file_contents(code_in, fast=False, mode=black.Mode()) # target_versions={black.TargetVersion.PY311}, # , line_length=120 # mode=black.FileMode(),
         # code_out = subprocess.run(["black", "-c", code_in], capture_output=True, text=True).stdout
-        with tempfile.NamedTemporaryFile(delete_on_close=False) as fp:
+        with tempfile.NamedTemporaryFile(delete=False) as fp:
             fp.write(code_in.encode())
             fp.close()
             # the file is closed, but not removed
