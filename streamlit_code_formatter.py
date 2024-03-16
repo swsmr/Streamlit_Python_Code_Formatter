@@ -41,8 +41,6 @@ if code_in:
             # open the file again by using its name
             with open(fp.name, mode='r') as f:                
                 code_out = f.read()
-                st.text(code_in)
-                st.text(code_out)
 
     st.header('Formatted code')
     st.code(code_out, language='python', line_numbers=st.sidebar.toggle("Display line numbers?", value=False))
