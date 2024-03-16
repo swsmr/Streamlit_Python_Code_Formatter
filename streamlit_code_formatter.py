@@ -27,10 +27,9 @@ if code_in:
     elif formatter == 'autopep8':
         code_out = autopep8.fix_code(code_in)
     elif formatter == 'black':
-        code_out = black.format_str(code_in, mode=black.FileMode()) # mode=black.Mode()
+        # code_out = black.format_str(code_in, mode=black.FileMode()) # mode=black.Mode()
         # code_out = black.format_file_contents(code_in, fast=False, mode=black.Mode()) # target_versions={black.TargetVersion.PY311}, # , line_length=120 # mode=black.FileMode(),
         # code_out = subprocess.run(["black", "-c", code_in], capture_output=True, text=True).stdout
-        """
         with tempfile.NamedTemporaryFile(mode='w', delete=False) as fp:
             fp.write(code_in)
             fp.close()
@@ -42,7 +41,6 @@ if code_in:
             # open the file again by using its name
             with open(fp.name, mode='r') as f:                
                 code_out = f.read()
-        """
 
     st.header('Formatted code')
     st.code(code_out, language='python', line_numbers=st.sidebar.toggle("Display line numbers?", value=False))
