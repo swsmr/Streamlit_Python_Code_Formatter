@@ -7,7 +7,7 @@ import black
 
 import streamlit as st
 
-st.set_page_config(page_title="Python Code Formatter", layout="wide", page_icon=':sparkles:')
+st.set_page_config(page_title="Python Code Formatter", layout="wide", page_icon=':snake:')
 st.title('Python Code Formatter')
 
 with st.sidebar:
